@@ -15,7 +15,7 @@ fail the **request** closed at runtime.
 
 ## 1. Signed URLs (`src/modules/signing/`)
 
-```
+```text
 signature = base64url_nopad(HMAC-SHA256(key, salt || signed_path))
 ```
 

@@ -46,7 +46,7 @@ signature     de7BKgwO8wFeNZWRWgp3UB9jKwOkVoYM_eMKau2ECgw
 
 Giving:
 
-```
+```text
 GET /de7BKgwO8wFeNZWRWgp3UB9jKwOkVoYM_eMKau2ECgw/rs:fill:300:300/q:80/aHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vcGhvdG8uanBn.jpg
 ```
 

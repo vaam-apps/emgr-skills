@@ -10,7 +10,7 @@ description: "EmgR's wire contract — the imgproxy-compatible signed-path gramm
 > repository over this page. See
 > [VERSIONING.md](https://github.com/vaam-apps/emgr-skills/blob/main/VERSIONING.md).
 
-```
+```text
 GET /{signature}/{processing_options}/{plain|base64url source}.{extension}
 ```
 
