@@ -10,14 +10,16 @@ description: "EmgR's wire contract — the imgproxy-compatible signed-path gramm
 > repository over this page. See
 > [VERSIONING.md](https://github.com/vaam-apps/emgr-skills/blob/main/VERSIONING.md).
 
-```
+```text
 GET /{signature}/{processing_options}/{plain|base64url source}.{extension}
 ```
 
 Path segments, not query parameters — the reasoning is in
 [ADR 0002](https://github.com/vaam-apps/image-resizer/blob/main/adr/0002-url-api-shape.md).
 Signature verification is `emgr-security`'s subject; this page is the grammar
-after it.
+after it — except for [`references/signing-a-url.md`](references/signing-a-url.md),
+which walks building one end to end against a vector the source repository
+pins in its own tests.
 
 ## How the parser tells an option from the source
 
