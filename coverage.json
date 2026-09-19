@@ -1,0 +1,145 @@
+{
+  "//": "The docs<->skills parity map. Checked in BOTH directions by tools/verify-coverage.mjs: an emgr documentation page (a page in the mkdocs tree under docs/, an adr/*.md, a helm/*/Chart.yaml, or a .roo/rules/*.md) that no skill claims fails, and a claimed path that no longer exists in image-resizer fails. See README.md and CONTRIBUTING.md.",
+  "baseline": {
+    "//": "A skill is true of *an* emgr, not of emgr. The project cuts release-please releases, but a skill describes the tree, and the tree moves between tags — so the honest version identity is a commit and a date. Every SKILL.md is stamped with this ref (or a descendant of it) and the gate refuses one stamped otherwise. See VERSIONING.md.",
+    "emgrRef": "446c4df61669fc1c05fbeef7ee4d0cf6c7957ead",
+    "emgrRefShort": "446c4df6",
+    "emgrCommitDate": "2026-09-19",
+    "verifiedAt": "2026-09-19"
+  },
+  "skills": {
+    "emgr": {
+      "covers": [
+        "README.md",
+        "docs/index.md",
+        "docs/architecture",
+        "docs/about/changelog.md",
+        "docs/getting-started/installation.md",
+        "src/main.rs",
+        "src/lib.rs",
+        "src/modules/router/router.rs",
+        "src/modules/api/handler.rs",
+        "CHANGELOG.md"
+      ]
+    },
+    "emgr-url-api": {
+      "covers": [
+        "docs/user-guide",
+        "adr/0002-url-api-shape.md",
+        "src/modules/url",
+        "src/modules/url/options.rs",
+        "src/modules/url/presets.rs",
+        "src/modules/url/source.rs",
+        "src/modules/negotiation.rs",
+        "src/models/params.rs",
+        "src/modules/api/resize.rs",
+        "src/modules/api/download.rs"
+      ]
+    },
+    "emgr-security": {
+      "covers": [
+        "src/modules/signing",
+        "src/modules/signing/config.rs",
+        "src/modules/signing/verify.rs",
+        "src/modules/metrics_auth",
+        "src/modules/metrics_auth/config.rs",
+        "src/modules/metrics_auth/middleware.rs",
+        "src/services/image/source_guard.rs",
+        "src/services/storage/key_validation.rs",
+        "tests/storage_key_validation.rs",
+        "deny.toml"
+      ]
+    },
+    "emgr-image-pipeline": {
+      "covers": [
+        "adr/0001-image-engine.md",
+        "adr/0003-webp-measurement.md",
+        "adr/0004-avif-measurement.md",
+        "adr/0005-avif-measurement-libavif-mozjpeg.md",
+        "docs/about/license.md",
+        "NOTICE",
+        "src/services/image",
+        "src/services/image/handler.rs",
+        "src/services/image/avif_codec.rs",
+        "src/services/resize/handler.rs"
+      ]
+    },
+    "emgr-storage-cache": {
+      "covers": [
+        "src/services/storage",
+        "src/services/storage/core.rs",
+        "src/services/storage/handler.rs",
+        "src/services/storage/local_fs_handler.rs",
+        "src/services/storage/s3_handler.rs",
+        "src/services/storage/in_memory_handler.rs",
+        "src/services/cache/handler.rs",
+        "src/modules/utils/etag.rs",
+        "src/modules/utils/err.rs",
+        "tests/storage_local_fs_atomicity.rs",
+        "tests/storage_s3_handler.rs"
+      ]
+    },
+    "emgr-config": {
+      "covers": [
+        "docs/getting-started/configuration.md",
+        "docs/configuration",
+        ".env.example",
+        ".env.benchmark.example",
+        "src/modules/env/env.rs",
+        "src/config/mod.rs",
+        "src/config/performance.rs",
+        "src/modules/utils/cgroup.rs",
+        ".github/scripts/check_env_docs.py"
+      ]
+    },
+    "emgr-performance": {
+      "covers": [
+        "PERFORMANCE_OPTIMIZATIONS.md",
+        ".bench-baseline/BASELINE.md",
+        ".bench-baseline/P0-COMPARISON.md",
+        "bench-imgproxy/README.md",
+        "benches",
+        "benches/fixtures.rs",
+        "src/modules/router/middlewares.rs",
+        "src/bin/benchmark.rs",
+        ".github/scripts/bench_gate.py",
+        ".cargo/config.toml"
+      ]
+    },
+    "emgr-ops": {
+      "covers": [
+        "docs/deployment",
+        "helm/emgr",
+        "helm/serverless",
+        "Dockerfile",
+        "compose.yaml",
+        "Makefile",
+        "src/services/health/handler.rs",
+        "src/bin/healthcheck.rs",
+        "src/modules/tracer/init.rs",
+        "src/services/metrics/handler.rs",
+        ".github/workflows/build.yml",
+        ".github/workflows/deploy-docs.yml"
+      ]
+    },
+    "emgr-tooling": {
+      "covers": [
+        "docs/development",
+        ".roo/rules/1-commit-message.md",
+        ".roo/rules/2-rust.md",
+        "Cargo.toml",
+        ".clippy.toml",
+        ".github/workflows/ci.yml",
+        ".github/workflows/quality.yml",
+        ".github/workflows/lint-codebase.yml",
+        ".github/workflows/pr-title.yml",
+        ".github/workflows/release-please.yml",
+        "release-please-config.json",
+        "ci/commit-message-parse/parse.mjs",
+        "tests/fixtures_smoke.rs"
+      ]
+    }
+  },
+  "exempt": [],
+  "exemptReasons": {}
+}
